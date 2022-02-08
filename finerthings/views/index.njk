@@ -1,4 +1,37 @@
-{% extends  layout %}
-{% block  content %}
-    <h1>{{message}}</h1>
+{% extends "layoutNav.njk" %}
+
+{% block head %}
+    <title>FinerThings</title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
 {% endblock %}
+
+{% block nav %}
+    <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio<span class="sr-only"></span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/categorias">Categorías</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/login">Iniciar sesión</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/regístrate">Regístrate</a>
+    </li>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="welcome">
+            <div class="text">
+                <h1>¡Bienvenido a
+                    <br>FinerThings!</h1></div>
+            <img class="photo" src="/images/index1.png">
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %} {% endblock %}

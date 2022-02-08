@@ -3,9 +3,9 @@ var router = express.Router();
 
 router.get('/', async  function(req, res, next) {
   let  data = {
-    message: 'Hello world!',
+    message: 'TFG Cristina Abdul Massih: finer things',
     layout:  'layout.njk',
-    title: 'Nunjucks example'
+    title: 'Esqueleto app'
   }
 
   res.render('index.njk', data)
