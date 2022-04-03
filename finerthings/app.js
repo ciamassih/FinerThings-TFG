@@ -2,18 +2,21 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-let  nunjucks = require('nunjucks')
+let  nunjucks = require('nunjucks');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-// configute Nunjucks with 'views' as templates directory
-nunjucks.configure('views', {
-    autoescape:  true,
-    express:  app
-})
+// configure Nunjucks with 'views' as templates directory
+app.engine( 'html', nunjucks.render) ;
+app.set( 'view engine', 'html');
+
+nunjucks.configure(path.join(__dirname, '/views'), {
+    autoescape: true,
+    express: app
+});
 
 app.use(logger('dev'));
 app.use(express.json());
