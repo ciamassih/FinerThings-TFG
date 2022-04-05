@@ -5,10 +5,6 @@
 {% endblock %}
 
 {% block header %}
-    <div id="login-title">
-        <h1>FinerThings</h1>
-    </div>
-
     {% if signinMessage  %}
         <div><h5>{{ signinMessage }}</h5></div>
     {% endif %}
@@ -17,27 +13,33 @@
 
 {% block content %}
 
-    <div id="login-form">
-        <form id="formulario" method="POST" action="/login">
-            <div class="form-group">
-                <label for="username">Nombre de usuario:</label>
-                <input type="text" name="username" id="username" required="required" class="form-control">  <br/>
+    <div class="box">
+        <img src="images/background2.png" alt="Background">
+        <div class="text">
+            <h1>Comienza tu aventura en Finer Things</h1>
+            <div id="login-form">
+                <form id="formulario" method="POST" action="/login">
+                    <div class="form-group">
+                        <label for="username">Nombre de usuario:</label>
+                        <input type="text" name="username" id="username" required="required" class="form-control">  <br/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" name="password" id="password" required="required"  class="form-control"/><br/>
+                        <!-- Para filtrar la contraseña poner en el input de password pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" -->
+                    </div>
+
+
+                    <a class="btn btn-outline-dark" href="/registrarse">Registrarse</a>
+                    <input type="submit" value="Iniciar Sesión" class="btn btn-outline-dark">
+                    <br>
+                    <br>
+                    <a href="/">Se me olvidó la contraseña</a>
+
+                </form>
             </div>
-
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" name="password" id="password" required="required"  class="form-control"/><br/>
-                <!-- Para filtrar la contraseña poner en el input de password pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" -->
-            </div>
-
-
-            <a class="btn btn-primary" href="/registrarse">Registrarse</a>
-            <input type="submit" value="Iniciar Sesión" class="btn btn-primary">
-            <br>
-            <br>
-            <a href="/">Se me olvidó la contraseña</a>
-
-        </form>
+        </div>
     </div>
 {% endblock %}
 {% block footer %}{% endblock %}

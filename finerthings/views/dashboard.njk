@@ -2,7 +2,7 @@
 
 {% block head %}
     <title>FinerThings</title>
-    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
 {% endblock %}
 
 {% block nav %}
@@ -18,19 +18,21 @@
 
 {% endblock %}
 
-{% block content %}
-
-    <div class="box">
-        <img src="images/background1.png" alt="Background">
-        <div class="text">
-            <h1>BIENVENIDO A FINER THINGS,  {{ user.firstName }} </h1>
-            <a class="btn btn-outline-dark" href="/login">COMIENZA A LEER</a>
-            <a class="btn btn-outline-dark" href="/login">COMIENZA A ESCRIBIR</a>
-
-        </div>
-    </div>
-    
-
+{% block header %}
+    <body>
+        <h1>Nos encanta verte volver, {{ user.firstName }}</h1>
 {% endblock %}
 
-{% block footer %} {% endblock %}
+{% block content %}
+    <div id="img-container">
+        <img class="img-item" src="/images/dashboard1.jpg">
+        <img class="img-item" src="/images/dashboard2.jpg">
+    </div>
+    <div id="options-container">
+        <a class="btn btn-outline-dark" href="/login">COMIENZA A LEER</a>
+        <a class="btn btn-outline-dark" href="/login">COMIENZA A ESCRIBIR</a>
+    </div>
+    </body>
+{% endblock %}
+
+{% block footer %}{% endblock %}

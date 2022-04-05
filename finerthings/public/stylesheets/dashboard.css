@@ -1,0 +1,49 @@
+#img-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#options-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.img-item{
+    width: 400px;
+    height: 380px;
+    flex-shrink: 5;
+    margin: 1%;
+}
+
+.btn {
+    flex-shrink: 5;
+    margin: 1%;
+    padding-left: 7.4%;
+    padding-right: 7.4%;
+}
+
+h1 {
+    color: white;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: xxx-large;
+    font-weight: bolder;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    animation: type 4s steps(60, end);
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5%;
+    padding: 1%;
+}
+
+@keyframes type{
+    from { width: 0; }
+}
+
+body {
+    background: #819aa6 linear-gradient(to right, #eba4d0, #cda4eb);
+}
