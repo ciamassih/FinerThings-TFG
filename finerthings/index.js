@@ -49,6 +49,7 @@ app.use((req, res, next) => { //Esto es un Middleware propio para poder acceder 
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/login', require('./routes/login'));
+app.use('/logout', isAuthenticated, require('./routes/logout'));
 app.use('/dashboard', isAuthenticated, require('./routes/dashboard'));
 
 // Authentication

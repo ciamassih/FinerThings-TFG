@@ -8,7 +8,7 @@ router.route('/')
     })
     .post(passport.authenticate('local-signin', {
         successRedirect: '/dashboard',
-        failureRedirect: '/',
+        failureRedirect: '/login',
         passReqToCallback: true
     }));
 
