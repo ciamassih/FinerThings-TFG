@@ -8,6 +8,9 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+//Initializations
+require('./database');
+
 // configure Nunjucks with 'views' as templates directory
 app.engine( 'html', nunjucks.render) ;
 app.set( 'view engine', 'html');
