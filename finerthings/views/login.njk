@@ -18,7 +18,7 @@
 {% block content %}
 
     <div id="login-form">
-        <form id="formulario" method="POST" action="/">
+        <form id="formulario" method="POST" action="/login">
             <div class="form-group">
                 <label for="username">Nombre de usuario:</label>
                 <input type="text" name="username" id="username" required="required" class="form-control">  <br/>
@@ -33,19 +33,11 @@
 
             <a class="btn btn-primary" href="/registrarse">Registrarse</a>
             <input type="submit" value="Iniciar Sesión" class="btn btn-primary">
-
             <br>
             <br>
             <a href="/">Se me olvidó la contraseña</a>
 
         </form>
-
-        <form method="POST" action="/">
-            <input type="text" name="username" value="guest" class="invisible">
-            <input type="text" name="password" value="guest" class="invisible"/><br/>
-            <input type="submit" value="Entrar como invitado" class="btn btn-primary">
-        </form>
-
     </div>
 {% endblock %}
 {% block footer %}{% endblock %}

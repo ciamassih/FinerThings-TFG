@@ -1,18 +1,28 @@
 {
   "name": "finerthings",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.20.0",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
+    "express-fileupload": "^1.3.1",
+    "express-session": "^1.17.2",
+    "http-errors": "^2.0.0",
     "mongodb": "^4.5.0",
     "mongoose": "^6.2.10",
     "morgan": "~1.9.1",
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.3",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.0.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
