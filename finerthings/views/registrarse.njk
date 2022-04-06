@@ -1,0 +1,79 @@
+{% extends "layout.njk" %}
+{% block head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Nuevo usuario Finer Things</title>
+    <link rel="stylesheet" href="/stylesheets/registrarse.css">
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="box">
+        <img src="images/background2.png" alt="Background">
+        <div class="text">
+            <h1>Crea tu cuenta en Finer Things</h1>
+            <img id="profile-pic" src="images/profilepic.jpg" alt="Sample photo">
+            <p class="photo-desc"> Haz click en la imagen para cambiar tu foto de perfil. </p>
+            <div class="signup-form">
+                <form id="registro" method="POST" action="/registrarse" encType="multipart/form-data">
+
+                    <label for="firstName">Nombre</label>
+                    <input name="firstName" type="text"  class="form-control" id="firstName" placeholder="Introduce tu nombre" required="required"/>
+
+                    <label for="lastName">Apellido</label>
+                    <input name="lastName" type="text"  class="form-control" id="lastName" placeholder="Introduce tu apellido" required="required"/>
+
+                    <label for="userName">Nombre de usuario</label>
+                    <input name="userName" type="text"  class="form-control" id="userName" placeholder="Nombre de usuario" required="required"/>
+
+                    <label for="email">Correo electrónico</label>
+                    <input name="email" type="email"  class="form-control" id="email" placeholder="Introduce un correo electrónico válido" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+
+                    <label for="password">Contraseña</label>
+                    <input name="password" type="password"  class="form-control" id="password" placeholder="Debe contener un número, minúsculas, mayúsculas y mínimo 8 caracteres" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+
+                    <label for="passwordConfirmation">Repite tu contraseña</label>
+                    <input name="passwordConfirmation" type="password"  class="form-control" placeholder="Confirma que has escrito tu contraseña correctamente" id="passwordConfirmation" oninput="check(this)" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+
+                    <input type="file" name="profilepic" id="upload" required="required" onchange="update(event)">
+
+                    <br>
+
+                    <input type="button" class="btn btn-outline-dark" onclick="location.href='/'"  value="Cancelar">
+                    <input type="submit" class="btn btn-outline-dark" value="Registrarse">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block footer %}
+    <script type='text/javascript'>
+        function check(input) {
+            if (input.value != document.getElementById('password').value) {
+                input.setCustomValidity('Password Must be Matching.');
+            } else {
+                // input is valid -- reset the error message
+                input.setCustomValidity('');
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        $("#profile-pic").click(function(e) {
+            $("#upload").click();
+        });
+    </script>
+
+    <script type="text/javascript">
+        var update = function(event) {
+            var output = document.getElementById('profile-pic');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+{% endblock %}

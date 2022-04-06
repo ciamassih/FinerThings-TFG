@@ -21,6 +21,7 @@
 {% block header %}
     <body>
         <h1>Nos encanta verte volver, {{ user.firstName }}</h1>
+        <h3>¿Qué quieres hacer hoy?</h3>
 {% endblock %}
 
 {% block content %}
@@ -29,8 +30,8 @@
         <img class="img-item" src="/images/dashboard2.jpg">
     </div>
     <div id="options-container">
-        <a class="btn btn-outline-dark" href="/login">COMIENZA A LEER</a>
-        <a class="btn btn-outline-dark" href="/login">COMIENZA A ESCRIBIR</a>
+        <a class="btn btn-outline-light" href="/login">COMIENZA A LEER</a>
+        <a class="btn btn-outline-light" href="/login">COMIENZA A ESCRIBIR</a>
     </div>
     </body>
 {% endblock %}
