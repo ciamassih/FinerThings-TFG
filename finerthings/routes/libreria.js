@@ -15,7 +15,7 @@ router.route('/')
         user = await User.updateOne({username:req.user.username}, {$pull:{favoritos:[req.body.favoritetitle]}})
         var query = {title: req.body.favoritetitle};
 
-        favorite = await Favorite.remove(query)
+        favorite = await Favorite.deleteOne(query)
         res.redirect('/libreria');
         }
 

@@ -42,6 +42,30 @@
 
 {% block content %}
 
+    {% if libros|length < 1 %}
+        <h3>No has realizado ninguna publicación.</h3>
+    {% else %}
+
+        {% for libro in libros %}
+            <form method="POST" action="/escribir">
+                <div class ="container">
+                    <div class="libros">
+                        <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
+                        <div class="libros-body">
+                            <h3 class="libros-heading">{{ libro.title }}</h3>
+                            <div class="libros-description">{{ libro.description }}</div>
+                            <a href="/libreria/{{ libro._id }}"> Leer más </a>
+                            <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
+                            <br><input type="submit" class="btn btn-outline-dark" value="Eliminar publicacion">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        {% endfor %}
+
+
+    {% endif %}
 {% endblock %}
 
 {% block footer %}{% endblock %}
