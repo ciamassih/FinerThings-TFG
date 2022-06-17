@@ -52,6 +52,11 @@ app.use('/login', require('./routes/login'));
 app.use('/registrarse', require('./routes/registrarse'));
 app.use('/logout', isAuthenticated, require('./routes/logout'));
 app.use('/dashboard', isAuthenticated, require('./routes/dashboard'));
+app.use('/libreria', isAuthenticated, require('./routes/libreria'));
+app.use('/escribir', isAuthenticated, require('./routes/escribir'));
+app.use('/libros', isAuthenticated, require('./routes/libros'));
+app.use('/favorites', isAuthenticated, require('./routes/favorites'));
+app.use('/escribir_form', isAuthenticated, require('./routes/escribir_form'));
 
 // Authentication
 function isAuthenticated(req, res, next) {

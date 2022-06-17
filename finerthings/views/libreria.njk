@@ -1,0 +1,72 @@
+{% extends "layoutNav.njk" %}
+
+{% block head %}
+    <title>Tu librería</title>
+    <link rel="stylesheet" href="/stylesheets/libreria.css">
+{% endblock %}
+
+{% block nav %}
+    <li class="nav-item active">
+        <a class="nav-link" href="/dashboard">Inicio<span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorías
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/libros">Todos</a>
+            <a class="dropdown-item" href="/accion">Acción</a>
+            <a class="dropdown-item" href="/aventura">Aventura</a>
+            <a class="dropdown-item" href="/romance">Romance</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#">Librería</a>
+    </li><br>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/escribir">Mis publicaciones</a>
+    </li><br>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+    </li><br>
+
+
+{% endblock %}
+
+{% block header %}
+        <h1>¡Hola, {{ user.firstName }}!</h1>
+        <h3>Aquí están tus publicaciones favoritas.</h3>
+{% endblock %}
+
+{% block content %}
+    {% if favorites|length < 1 %}
+        <h3>No tienes ninguna publicación añadida a tu lista de favoritos.</h3>
+    {% else %}
+
+        {% for favorite in favorites %}
+        <form method="POST" action="/libreria">
+            <div class ="container">
+                <div class="libros">
+                    <img class="photo" src="{{ favorite.photo }}" alt="Sample photo">
+                    <div class="libros-body">
+                        <h3 class="libros-heading">{{ favorite.title }}</h3>
+                        <div class="libros-description">{{ favorite.description }}</div>
+                        <a href="/libreria/{{ libro._id }}"> Leer más </a>
+                        <input type="hidden" id="favoritetitle" name="favoritetitle" value="{{ favorite.title }}">
+                        <br><input type="submit" class="btn btn-outline-dark" value="Eliminar de Favoritos">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        {% endfor %}
+
+
+    {% endif %}
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

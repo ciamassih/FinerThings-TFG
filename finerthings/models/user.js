@@ -11,6 +11,7 @@ const userSchema = new Schema({
     email: String,
     photo: Array,
     description: String,
+    favoritos: Array,
     isAdmin: Boolean
 });
 

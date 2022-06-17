@@ -1,0 +1,81 @@
+{% extends "layoutNav.njk" %}
+
+{% block head %}
+    <title>Tu librería</title>
+    <link rel="stylesheet" href="/stylesheets/libros.css">
+{% endblock %}
+
+{% block nav %}
+    <li class="nav-item active">
+        <a class="nav-link" href="/dashboard">Inicio<span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorías
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Todos</a>
+            <a class="dropdown-item" href="/accion">Acción</a>
+            <a class="dropdown-item" href="/aventura">Aventura</a>
+            <a class="dropdown-item" href="/romance">Romance</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/libreria">Librería</a>
+    </li><br>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/escribir">Mis publicaciones</a>
+    </li><br>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+    </li><br>
+
+
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    {% if libros|length < 1 %}
+        <h3>No existen libros disponibles.</h3>
+    {% else %}
+
+        {% for libro in libros %}
+            <form method="POST" action="/favorites">
+                <div class="body">
+                    <div class ="container">
+                        <div class="libros">
+                            <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
+                            <div class="libros-body">
+                                <h3 class="libros-heading">{{ libro.title }}</h3>
+                                <div class="libros-description">{{ libro.description }}
+                                    <br>{{ libro.author }}
+                                    <br>{{ libro.category }}
+                                    <br>{{ libro.language }}
+                                <br><a href="/libros/{{ libro._id }}"> Leer más </a>
+                                <input type="hidden" id="libroauthor" name="libroauthor" value="{{ libro.author }}">
+                                <input type="hidden" id="librophoto" name="librophoto" value="{{ libro.photo }}">
+                                <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
+                                <input type="hidden" id="librodescription" name="librodescription" value="{{ libro.description }}">
+                                {% if libro.title not in user.favoritos %}
+                                    <br><input type="submit" class="btn btn-outline-dark" value="Añadir a Favoritos">
+                                {% endif %}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        {% endfor %}
+
+
+    {% endif %}
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

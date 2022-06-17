@@ -1,13 +1,13 @@
 {% extends "layoutNav.njk" %}
 
 {% block head %}
-    <title>FinerThings</title>
-    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <title>Tus libros</title>
+    <link rel="stylesheet" href="/stylesheets/escribir.css">
 {% endblock %}
 
 {% block nav %}
     <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio<span class="sr-only"></span></a>
+        <a class="nav-link" href="/dashboard">Inicio<span class="sr-only"></span></a>
     </li>
 
     <li class="nav-item dropdown">
@@ -33,25 +33,15 @@
         <a class="nav-link" href="/logout">Logout</a>
     </li><br>
 
-
 {% endblock %}
 
 {% block header %}
-    <body>
-        <h1>Nos encanta verte volver, {{ user.firstName }}</h1>
-        <h3>¿Qué quieres hacer hoy?</h3>
+    <h1> Mis publicaciones</h1>
+    <a class="btn btn-outline-light" href="/escribir_form">Nueva publicación</a>
 {% endblock %}
 
 {% block content %}
-    <div id="img-container">
-        <img class="img-item" src="/img/dashboard1.jpg">
-        <img class="img-item" src="/img/dashboard2.jpg">
-    </div>
-    <div id="options-container">
-        <a class="btn btn-outline-light" href="/libros">COMIENZA A LEER</a>
-        <a class="btn btn-outline-light" href="/escribir">COMIENZA A ESCRIBIR</a>
-    </div>
-    </body>
+
 {% endblock %}
 
 {% block footer %}{% endblock %}

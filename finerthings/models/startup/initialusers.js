@@ -18,6 +18,7 @@ async function initDB() {
             email: "admin@finerthings.com",
             birthday: new Date("<2000-01-01>"),
             description: "This is the admin account",
+            favoritos: [],
             isAdmin: "true"
         },
         {
@@ -28,6 +29,7 @@ async function initDB() {
             email: "test@finerthings.com",
             birthday: new Date("<2000-01-01>"),
             description: "This is a test account",
+            favoritos: [],
             isAdmin: "false"
         }
     ];

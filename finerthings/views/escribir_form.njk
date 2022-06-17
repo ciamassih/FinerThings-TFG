@@ -1,0 +1,118 @@
+{% extends "layoutNav.njk" %}
+
+{% block head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Nueva publicación</title>
+    <link rel="stylesheet" href="/stylesheets/escribir_form.css">
+{% endblock %}
+
+{% block nav %}
+    <li class="nav-item active">
+        <a class="nav-link" href="/dashboard">Inicio<span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorías
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/libros">Todos</a>
+            <a class="dropdown-item" href="/accion">Acción</a>
+            <a class="dropdown-item" href="/aventura">Aventura</a>
+            <a class="dropdown-item" href="/romance">Romance</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/libreria">Librería</a>
+    </li><br>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/escribir">Mis publicaciones</a>
+    </li><br>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+    </li><br>
+
+{% endblock %}
+
+{% block header %}
+    <h1> Publicar nueva historia </h1>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="formulario">
+            <img id="escribir-photo" src="/img/escribir-form.png" alt="Añadir portada">
+            <p class="photo-desc"> Haz click en la imagen para añadir la portada de tu publicación.</p>
+            <div class="escribir-form">
+                <form class="escribirform" method="POST" action="/escribir_form" id="escribir_form" encType="multipart/form-data">
+
+                    <label for="title">Título:</label>
+                    <input name="title" type="text" placeholder="Introduce el título de tu publicación" class="form-control" id="title" required="required"/><br />
+
+                    <label for="description">Descripción:</label>
+                    <input name="description" type="text" placeholder="Cuéntanos de qué trata tu publicación para atraer a más lectores" class="form-control" id="description" required="required"/><br />
+
+                    <label for="category">Categoría</label>
+                    <select name="category" id="category" class="form-control selectpicker" required="required">
+                        <option value="">Escoge una categoría</option>
+                        <option>Acción</option>
+                        <option>Aventura</option>
+                        <option>Fantasía</option>
+                        <option>Ficción</option>
+                        <option>Horror</option>
+                        <option>Humor</option>
+                        <option>Misterio</option>
+                        <option>Poesía</option>
+                        <option>Romance</option>
+                    </select> <br />
+
+                    <label for="language">Idioma</label>
+                    <select name="language" id="language" class="form-control selectpicker" required="required">
+                        <option value="">Selecciona el idioma de tu publicación</option>
+                        <option>Español</option>
+                        <option>Inglés</option>
+                    </select> <br />
+
+                    <label for="content">Publicación</label>
+                    <input type="text" name="Comienza a escribir" id="content" class="form-control" required="required"/>
+
+                    <input type="file" name="fotoescribir" id="upload" required="required" onchange="update(event)">
+
+                    <br />
+
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                    <a class="btn btn-primary" href="/escribir">Volver</a>
+
+
+                    <br />
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="h2-blank"> </h2>
+
+{% endblock %}
+{% block footer %}
+
+    <script type="text/javascript">
+
+        $("#escribir-photo").click(function(e) {
+            $("#upload").click();
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        var update = function(event) {
+
+            var output = document.getElementById('escribir-photo');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+{% endblock %}

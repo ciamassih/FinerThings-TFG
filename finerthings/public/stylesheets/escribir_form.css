@@ -1,0 +1,47 @@
+h1 {
+    color: black;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 3%;
+    padding: 1%;
+}
+
+.container{
+    padding: 1%;
+    background: #F6F3EB;
+}
+
+
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    grid-template-rows: 0.5fr 1fr;
+    gap: 1px 0px;
+    grid-template-areas:
+    "photo escribir-form"
+    "photo-desc escribir-form";
+}
+
+#escribir-photo {
+    margin: 20px;
+    grid-area: photo;
+    width: auto;
+    height: 400px;
+    cursor: pointer;
+}
+
+
+.escribir-form {
+    grid-area: escribir-form;
+    font-size: 120%;
+}
+
+#upload {
+    display: none;
+}
+
+.h2-blank{
+    padding: 1%;
+}

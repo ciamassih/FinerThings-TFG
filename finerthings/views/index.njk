@@ -6,12 +6,22 @@
 {% endblock %}
 
 {% block nav %}
-    <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio<span class="sr-only"></span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/categorias">Categorías</a>
-    </li>
+<li class="nav-item active">
+    <a class="nav-link" href="#">Inicio<span class="sr-only"></span></a>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categorías
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/libros">Todos</a>
+        <a class="dropdown-item" href="/accion">Acción</a>
+        <a class="dropdown-item" href="/aventura">Aventura</a>
+        <a class="dropdown-item" href="/romance">Romance</a>
+    </div>
+</li>
+
     <li class="nav-item">
         <a class="nav-link" href="/login">Login</a>
     </li>
@@ -21,7 +31,7 @@
 {% block content %}
 
     <div class="box">
-        <img src="images/background1.png" alt="Background">
+        <img src="img/background1.png" alt="Background">
         <div class="text">
             <h1>BIENVENIDO A FINER THINGS</h1>
            <p><h2> Te conectamos con una comunidad apasionada por la literatura</h2>
