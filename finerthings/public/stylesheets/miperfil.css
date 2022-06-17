@@ -1,0 +1,76 @@
+h1 {
+    color: black;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: xxx-large;
+    font-weight: bolder;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    animation: type 4s steps(60, end);
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 1%;
+    padding: 1%;
+}
+
+@keyframes type{
+    from { width: 0; }
+}
+
+h3 {
+    color: palevioletred;
+    font-weight: bolder;
+    font-size: x-large;
+    text-align: center;
+    animation: h3 1s ease-out;
+}
+
+.container {
+    background: #F6F3EB;
+    max-height: 400px;
+    max-width: 1100px;
+}
+.profile {
+    display: grid;
+    grid-template-columns: 1.2fr 1.0fr;
+    grid-template-rows: 0.4fr 1.6fr;
+    gap: 30px 50px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . ."
+    "profile-photo profile-info profile-info"
+    "profile-desc profile-desc profile-desc";
+    justify-items: center;
+}
+
+
+.profile-photo {
+    grid-area: profile-photo;
+    position: relative;
+    margin-top: -40px;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-areas:
+    ". profile-info profile-info"
+    ". profile-info profile-info"
+    ". profile-info profile-info";
+    grid-area: profile-info;
+    color: black;
+    font-size: larger;
+    align-items: flex-start;
+    padding: 5em;
+    margin-top: -100px;
+    margin-left: -400px;
+
+}
+
+.profile-desc { grid-area: profile-desc; }
+
+.buttons {
+    text-align: center;
+    padding: 3%;
+}
+
+

@@ -2,12 +2,12 @@
 
 {% block head %}
     <title>FinerThings</title>
-    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <link rel="stylesheet" href="/stylesheets/miperfil.css">
 {% endblock %}
 
 {% block nav %}
     <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio<span class="sr-only"></span></a>
+        <a class="nav-link" href="/dashboard">Inicio<span class="sr-only"></span></a>
     </li>
 
     <li class="nav-item dropdown">
@@ -30,7 +30,7 @@
     </li><br>
 
     <li class="nav-item">
-        <a class="nav-link" href="/miperfil">Mi perfil</a>
+        <a class="nav-link" href="#">Mi perfil</a>
     </li><br>
 
     <li class="nav-item">
@@ -41,21 +41,29 @@
 {% endblock %}
 
 {% block header %}
-    <body>
-        <h1>Nos encanta verte volver, {{ user.firstName }}</h1>
-        <h3>¿Qué quieres hacer hoy?</h3>
+<h1>¡Hola, {{ user.firstName }}!</h1>
+<h3>Bienvenido a tu perfil.</h3>
 {% endblock %}
 
 {% block content %}
-    <div id="img-container">
-        <img class="img-item" src="/img/dashboard1.jpg">
-        <img class="img-item" src="/img/dashboard2.jpg">
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-photo">
+                <img style="max-height: 300px; max-width: 300px" src="/img/{{ user.username }}.jpg"> </div>
+            <div class="profile-info">
+                <br class="info-item">Username: {{ user.username }}
+                <br class="info-item">Email: {{ user.email }}
+                <br class="info-item">Nombre: {{ user.firstName }}
+                <br class="info-item">Apellido: {{ user.lastName }}
+            </div>
+        </div>
     </div>
-    <div id="options-container">
-        <a class="btn btn-outline-light" href="/libros">COMIENZA A LEER</a>
-        <a class="btn btn-outline-light" href="/escribir">COMIENZA A ESCRIBIR</a>
-    </div>
-    </body>
+        <div class="buttons">
+            <a class="btn btn-outline-dark" href="/perfil_form_foto">Cambiar foto de perfil</a>
+            <a class="btn btn-outline-dark" href="/perfil_form_pass">Cambiar contraseña</a>
+        </div>
+
 {% endblock %}
 
 {% block footer %}{% endblock %}

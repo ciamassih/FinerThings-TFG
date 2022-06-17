@@ -25,7 +25,7 @@ passport.use('local-signup', new LocalStrategy({
         return done(null, false, req.flash('signupMessage','Username is taken.'));
     } else{ //Si no existe continuamos
         let profilepic = req.files.profilepic;
-        let uploadPath = process.cwd() + "/public/img/" + req.body.userName + ".jpg";
+        let uploadPath = process.cwd() + "/finerthings/public/img/" + req.body.userName + ".jpg";
 
         profilepic.mv(uploadPath, function (err){
             if (err) console.log(err)
@@ -35,8 +35,7 @@ passport.use('local-signup', new LocalStrategy({
         newUser.username = username
         newUser.password = newUser.encryptPassword(password);
         newUser.firstName = req.body.firstName;
-        newUser.lastName1 = req.body.lastName1;
-        newUser.lastName2 = req.body.lastName2;
+        newUser.lastName = req.body.lastName;
         newUser.email = req.body.email;
         newUser.birthday = Date();
         newUser.isAdmin = "false";

@@ -57,6 +57,9 @@ app.use('/escribir', isAuthenticated, require('./routes/escribir'));
 app.use('/libros', isAuthenticated, require('./routes/libros'));
 app.use('/favorites', isAuthenticated, require('./routes/favorites'));
 app.use('/escribir_form', isAuthenticated, require('./routes/escribir_form'));
+app.use('/miperfil', isAuthenticated, require('./routes/miperfil'));
+app.use('/perfil_form_foto', isAuthenticated, require('./routes/perfil_form_foto'));
+app.use('/perfil_form_pass', isAuthenticated, require('./routes/perfil_form_pass'));
 
 // Authentication
 function isAuthenticated(req, res, next) {

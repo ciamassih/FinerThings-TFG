@@ -1,0 +1,57 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>FinerThings</title>
+    <link rel="stylesheet" href="/stylesheets/perfilfoto.css">
+{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+    {% if signupMessage  %}
+        <div><h5>{{ signupMessage }}</h5></div>
+    {% endif %}
+
+    <div class="box">
+        <img src="img/background2.png" alt="Background">
+        <div class="text">
+            <h1>Modifica tu foto de perfil de Finer Things</h1>
+            <img id="profile-pic" src="img/profilepic.jpg" alt="Sample photo">
+            <p class="photo-desc"> Haz click en la imagen para cambiar tu foto. </p>
+            <div class="signup-form">
+                <form id="registro" method="POST" action="/perfil_form_foto" encType="multipart/form-data">
+
+                    <input type="file" name="profilepic" id="upload" required="required" onchange="update(event)">
+
+                    <br>
+
+                    <input type="button" class="btn btn-outline-dark" onclick="location.href='/miperfil'"  value="Cancelar">
+                    <input type="submit" class="btn btn-outline-dark" value="Cambiar foto">
+                    <br>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+    <script type='text/javascript'>
+        $("#profile-pic").click(function(e) {
+            $("#upload").click();
+        });
+    </script>
+
+    <script type="text/javascript">
+        var update = function(event) {
+            var output = document.getElementById('profile-pic');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+
+{% endblock %}

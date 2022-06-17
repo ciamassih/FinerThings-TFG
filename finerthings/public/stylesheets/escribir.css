@@ -1,5 +1,5 @@
 h1 {
-    color: white;
+    color: palevioletred;
     font-family: 'Trebuchet MS', sans-serif;
     font-size: xxx-large;
     font-weight: bolder;
@@ -8,9 +8,8 @@ h1 {
     width: 30em;
     animation: type 4s steps(60, end);
     margin: 0 auto;
-    text-align: left;
-    margin-left: 100px;
-    margin-top: 3%;
+    text-align: center;
+    margin-top: 1%;
     padding: 1%;
 }
 
@@ -18,11 +17,8 @@ h1 {
     from { width: 0; }
 }
 
-body {
-    background: #819aa6 linear-gradient(to right, #e08bd4, #657799);
-}
 
-.btn-outline-light {
+.btn-secondary {
     right: 70px;
     top: 170px;
     position: absolute;
@@ -39,23 +35,24 @@ body {
     background: #F6F3EB;
     padding: 5em;
     grid-template-areas:
-    ". photo libro"
-    ". photo libro"
-    ". photo libro";
+    ". photo info"
+    ". photo info"
+    ". . .";
     grid-area: libro;
-
 }
 .photo {
-    margin-top: -40px;
+    margin-right: 10px;
+    margin-top: 0;
     grid-template-areas:
     ". . ."
     ". . ."
     ". . .";
     grid-area: photo;
     display: block;
-    position: absolute;
-    max-width:310px;
-    max-height:250px;
+    max-width:400px;
+    max-height:400px;
+    width: auto;
+    height: auto;
 }
 .libros-body {
     display: grid;
@@ -72,8 +69,13 @@ body {
 
 .libros-description {
     grid-area: description;
-    font-size: 15px;
 }
 
+.btn-outline-dark {
+    position: relative;
+    right: 10px;
+    top: 260px;
+    padding-left: 15px;
+    padding-right: 15px;
 
-
+}

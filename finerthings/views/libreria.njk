@@ -30,6 +30,10 @@
     </li><br>
 
     <li class="nav-item">
+        <a class="nav-link" href="/miperfil">Mi perfil</a>
+    </li><br>
+
+    <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
     </li><br>
 
@@ -48,13 +52,14 @@
 
         {% for favorite in favorites %}
         <form method="POST" action="/libreria">
+
             <div class ="container">
                 <div class="libros">
                     <img class="photo" src="{{ favorite.photo }}" alt="Sample photo">
                     <div class="libros-body">
                         <h3 class="libros-heading">{{ favorite.title }}</h3>
                         <div class="libros-description">{{ favorite.description }}</div>
-                        <a href="/libreria/{{ libro._id }}"> Leer más </a>
+                        <a href="/libreria/{{ libro._id }}"> Leer más </a><br>
                         <input type="hidden" id="favoritetitle" name="favoritetitle" value="{{ favorite.title }}">
                         <br><input type="submit" class="btn btn-outline-dark" value="Eliminar de Favoritos">
                     </div>
