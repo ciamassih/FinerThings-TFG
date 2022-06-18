@@ -2,7 +2,7 @@
 
 {% block head %}
     <title>Tu librería</title>
-    <link rel="stylesheet" href="/stylesheets/libreria.css">
+    <link rel="stylesheet" href="/stylesheets/amigos.css">
 {% endblock %}
 
 {% block nav %}
@@ -21,8 +21,18 @@
             <a class="dropdown-item" href="/romance">Romance</a>
     </li>
 
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Comunidad
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/comunidad">Encontrar amigos</a>
+            <a class="dropdown-item" href="#">Siguiendo</a>
+            <a class="dropdown-item" href="/seguidores">Mis seguidores</a>
+    </li>
+
     <li class="nav-item">
-        <a class="nav-link" href="#">Librería</a>
+        <a class="nav-link" href="/libreria">Librería</a>
     </li><br>
 
     <li class="nav-item">
@@ -33,14 +43,6 @@
         <a class="nav-link" href="/miperfil">Mi perfil</a>
     </li><br>
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Comunidad
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/comunidad">Encontrar amigos</a>
-            <a class="dropdown-item" href="#">Mis amigos</a>
-    </li>
 
     <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
@@ -55,27 +57,31 @@
 
 {% block content %}
     {% if follows|length < 1 %}
-        <h3>No tienes ningún usuario añadido como amigo.</h3>
+        <h3>No estás siguiendo a ningún usuario.</h3>
         <a class="btn btn-outline-light" href="/comunidad">COMIENZA A SEGUIR USUARIOS</a>
     {% else %}
         <h3>Aquí están los usuarios a los que sigues.</h3>
 
         {% for follow in follows %}
         <form method="POST" action="/amigos">
-
             <div class ="container">
                 <div class="libros">
                     <img class="photo" src="/img/{{ follow.username }}.jpg" alt="Sample photo">
                     <div class="libros-body">
                         <h3 class="libros-heading">{{ follow.username }}</h3>
                         <div class="libros-description">{{ follow.email }}</div>
-                        <a href="/libreria/{{ favorite._id }}"> Leer más </a><br>
-                        <input type="hidden" id="followfriend" name="followfriend" value="{{ follow.username }}">
-                        <br><input type="submit" class="btn btn-outline-dark" value="Eliminar de Amigos">
+                        <input type="hidden" id="friendusername" name="friendusername" value="{{ follow.username }}">
+                        <br><input type="submit" class="btn btn-outline-dark" value="Dejar de seguir">
                     </div>
                 </div>
             </div>
         </form>
+
+        <form method="POST" action="/amigos_publicaciones">
+            <input type="hidden" id="friendusername" name="friendusername" value="{{ follow.username }}">
+            <br><input type="submit" class="btn btn-secondary" value="Ver publicaciones">
+        </form>
+
 
         {% endfor %}
 

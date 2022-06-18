@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Favorite = require("../models/favorites");
 const User = require("../models/user");
 const passport = require('passport');
-const flash = require('connect-flash');
 
 router.route('/')
 
@@ -14,6 +12,7 @@ router.route('/')
 
     .post(async function(req, res, next){
                 let following = req.user.following
+
                 if(req.body.friendusername in following){
                         res.send("Error")
                 }
@@ -21,6 +20,7 @@ router.route('/')
                 else {
 
                         user = await User.updateOne({username:req.user.username}, {$push:{following:req.body.friendusername}})
+                        user = await User.updateOne({username:req.body.friendusername}, {$push:{followers:req.user.username}})
                         console.log(req.body.friendusername)
 
                         res.redirect('/comunidad');

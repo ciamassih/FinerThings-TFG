@@ -2,7 +2,7 @@
 
 {% block head %}
     <title>Tu librería</title>
-    <link rel="stylesheet" href="/stylesheets/favorite_detailed.css">
+    <link rel="stylesheet" href="/stylesheets/amigos.css">
 {% endblock %}
 
 {% block nav %}
@@ -28,7 +28,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/comunidad">Encontrar amigos</a>
             <a class="dropdown-item" href="/amigos">Siguiendo</a>
-            <a class="dropdown-item" href="/seguidores">Mis seguidores</a>
+            <a class="dropdown-item" href="#">Mis seguidores</a>
     </li>
 
     <li class="nav-item">
@@ -43,6 +43,7 @@
         <a class="nav-link" href="/miperfil">Mi perfil</a>
     </li><br>
 
+
     <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
     </li><br>
@@ -51,17 +52,35 @@
 {% endblock %}
 
 {% block header %}
+        <h1>¡Hola, {{ user.firstName }}!</h1>
 {% endblock %}
 
 {% block content %}
+    {% if follows|length < 1 %}
+        <h3>Actualmente no tienes seguidores.</h3>
+        <a class="btn btn-outline-light" href="/comunidad">COMIENZA A SEGUIR USUARIOS</a>
+    {% else %}
+        <h3>Aquí están los usuarios que te siguen.</h3>
 
-    <div class="container">
-        <h3 class="profile-title">{{ libro.title }}</h3>
-        <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
-        <div class="info">{{ libro.content }}
-            <a class="btn btn-outline-dark" href="/libreria">Volver</a>
-        </div>
-    </div>
+        {% for follow in follows %}
+        <form method="POST" action="/seguidores">
+            <div class ="container">
+                <div class="libros">
+                    <img class="photo" src="/img/{{ follow.username }}.jpg" alt="Sample photo">
+                    <div class="libros-body">
+                        <h3 class="libros-heading">{{ follow.username }}</h3>
+                        <div class="libros-description">{{ follow.email }}</div>
+                        <input type="hidden" id="friendusername" name="friendusername" value="{{ follow.username }}">
+                        <br><input type="submit" class="btn btn-outline-dark" value="Ver publicaciones">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        {% endfor %}
+
+
+    {% endif %}
 
 {% endblock %}
 
