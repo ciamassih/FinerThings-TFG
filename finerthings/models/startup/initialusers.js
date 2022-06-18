@@ -19,6 +19,7 @@ async function initDB() {
             birthday: new Date("<2000-01-01>"),
             description: "This is the admin account",
             favoritos: [],
+            following: [],
             followers: [],
             isAdmin: "true"
         },
@@ -31,6 +32,7 @@ async function initDB() {
             birthday: new Date("<2000-01-01>"),
             description: "This is a test account",
             favoritos: [],
+            following: [],
             followers: [],
             isAdmin: "false"
         }

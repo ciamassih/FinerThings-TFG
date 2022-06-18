@@ -12,6 +12,7 @@ const userSchema = new Schema({
     photo: Array,
     description: String,
     favoritos: Array,
+    following: Array,
     followers: Array,
     isAdmin: Boolean
 });

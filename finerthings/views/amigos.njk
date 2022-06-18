@@ -2,7 +2,7 @@
 
 {% block head %}
     <title>Tu librería</title>
-    <link rel="stylesheet" href="/stylesheets/comunidad.css">
+    <link rel="stylesheet" href="/stylesheets/libreria.css">
 {% endblock %}
 
 {% block nav %}
@@ -22,7 +22,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/libreria">Librería</a>
+        <a class="nav-link" href="#">Librería</a>
     </li><br>
 
     <li class="nav-item">
@@ -38,8 +38,8 @@
             Comunidad
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Encontrar amigos</a>
-            <a class="dropdown-item" href="/amigos">Mis amigos</a>
+            <a class="dropdown-item" href="/comunidad">Encontrar amigos</a>
+            <a class="dropdown-item" href="#">Mis amigos</a>
     </li>
 
     <li class="nav-item">
@@ -50,34 +50,32 @@
 {% endblock %}
 
 {% block header %}
+        <h1>¡Hola, {{ user.firstName }}!</h1>
 {% endblock %}
 
 {% block content %}
-    {% if users|length < 1 %}
-        <h3>No hay usuarios.</h3>
+    {% if follows|length < 1 %}
+        <h3>No tienes ningún usuario añadido como amigo.</h3>
+        <a class="btn btn-outline-light" href="/comunidad">COMIENZA A SEGUIR USUARIOS</a>
     {% else %}
+        <h3>Aquí están los usuarios a los que sigues.</h3>
 
-        {% for element in users %}
-            <form method="POST" action="/follow">
-                <div class="body">
-                    <div class ="container">
-                        <div class="libros">
-                            <img class="photo" src="/img/{{ element.username }}.jpg" alt="Sample photo">
-                            <div class="libros-body">
-                                <h3 class="libros-heading">{{ element.username }}</h3>
-                                <div class="libros-description">{{ element.email }}
-                                <br><a href="/libros/{{ libro._id }}"> Leer más </a>
-                                <input type="hidden" id="friendusername" name="friendusername" value="{{ element.username }}">
-                                <input type="hidden" id="friendemail" name="friendemail" value="{{ element.email }}">
-                                {% if (element.username not in user.following) and (element.username != user.username) %}
-                                    <br><input type="submit" class="btn btn-outline-dark" value="Añadir amigo">
-                                {% endif %}
-                            </div>
-                        </div>
-                        </div>
+        {% for follow in follows %}
+        <form method="POST" action="/amigos">
+
+            <div class ="container">
+                <div class="libros">
+                    <img class="photo" src="/img/{{ follow.username }}.jpg" alt="Sample photo">
+                    <div class="libros-body">
+                        <h3 class="libros-heading">{{ follow.username }}</h3>
+                        <div class="libros-description">{{ follow.email }}</div>
+                        <a href="/libreria/{{ favorite._id }}"> Leer más </a><br>
+                        <input type="hidden" id="followfriend" name="followfriend" value="{{ follow.username }}">
+                        <br><input type="submit" class="btn btn-outline-dark" value="Eliminar de Amigos">
                     </div>
                 </div>
-            </form>
+            </div>
+        </form>
 
         {% endfor %}
 
