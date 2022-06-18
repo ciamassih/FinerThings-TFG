@@ -1,8 +1,8 @@
 {% extends "layoutNav.njk" %}
 
 {% block head %}
-    <title>FinerThings</title>
-    <link rel="stylesheet" href="/stylesheets/miperfil.css">
+    <title>Tu librería</title>
+    <link rel="stylesheet" href="/stylesheets/libro_detailed.css">
 {% endblock %}
 
 {% block nav %}
@@ -30,7 +30,7 @@
     </li><br>
 
     <li class="nav-item">
-        <a class="nav-link" href="#">Mi perfil</a>
+        <a class="nav-link" href="/miperfil">Mi perfil</a>
     </li><br>
 
     <li class="nav-item">
@@ -45,28 +45,17 @@
 {% endblock %}
 
 {% block header %}
-<h1>¡Hola, {{ user.firstName }}!</h1>
-<h3>Bienvenido a tu perfil.</h3>
 {% endblock %}
 
 {% block content %}
 
     <div class="container">
-        <div class="profile">
-            <div class="profile-photo">
-                <img style="max-height: 300px; max-width: 300px" src="/img/{{ user.username }}.jpg"> </div>
-            <div class="profile-info">
-                <br class="info-item">Username: {{ user.username }}
-                <br class="info-item">Email: {{ user.email }}
-                <br class="info-item">Nombre: {{ user.firstName }}
-                <br class="info-item">Apellido: {{ user.lastName }}
-            </div>
+        <h3 class="profile-title">{{ libro.title }}</h3>
+        <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
+        <div class="info">{{ libro.content }}
+            <a class="btn btn-outline-dark" href="/libros">Volver</a>
         </div>
     </div>
-        <div class="buttons">
-            <a class="btn btn-outline-dark" href="/perfil_form_foto">Cambiar foto de perfil</a>
-            <a class="btn btn-outline-dark" href="/perfil_form_pass">Cambiar contraseña</a>
-        </div>
 
 {% endblock %}
 

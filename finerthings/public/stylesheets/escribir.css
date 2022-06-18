@@ -17,6 +17,9 @@ h1 {
     from { width: 0; }
 }
 
+h3 {
+    text-align: center;
+}
 
 .btn-secondary {
     right: 70px;

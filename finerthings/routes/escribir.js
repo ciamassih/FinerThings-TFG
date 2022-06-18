@@ -20,4 +20,13 @@ router.route('/')
         res.redirect('/escribir');
     })
 
+    router.route('/:id')
+        .get(function(req, res, next){
+            Libro.findById(req.params.id, function (err, libro){
+                if (err) return console.log(err);
+                res.render('libro_detailed.njk', {libro: libro});
+            } )
+
+        });
+
 module.exports = router;

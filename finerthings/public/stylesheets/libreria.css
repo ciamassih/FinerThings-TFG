@@ -117,13 +117,17 @@ h3 {
     grid-area: description;
 }
 
-.btn {
+.btn-outline-dark {
     position: relative;
     right: 70px;
     top: 200px;
     padding-left: 15px;
     padding-right: 15px;
 
+}
+
+.btn-outline-light {
+    text-align: center;
 }
 
 

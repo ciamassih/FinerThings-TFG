@@ -34,6 +34,10 @@
     </li><br>
 
     <li class="nav-item">
+        <a class="nav-link" href="/comunidad">Comunidad</a>
+    </li><br>
+
+    <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
     </li><br>
 
@@ -58,7 +62,7 @@
                         <div class="libros-body">
                             <h3 class="libros-heading">{{ libro.title }}</h3>
                             <div class="libros-description">{{ libro.description }}</div>
-                            <a href="/libreria/{{ libro._id }}"> Leer más </a>
+                            <a href="/libros/{{ libro._id }}"> Leer más </a>
                             <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
                             <br><input type="submit" class="btn btn-outline-dark" value="Eliminar publicacion">
                         </div>

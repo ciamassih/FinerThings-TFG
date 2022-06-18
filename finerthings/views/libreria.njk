@@ -34,6 +34,10 @@
     </li><br>
 
     <li class="nav-item">
+        <a class="nav-link" href="/comunidad">Comunidad</a>
+    </li><br>
+
+    <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
     </li><br>
 
@@ -42,13 +46,14 @@
 
 {% block header %}
         <h1>¡Hola, {{ user.firstName }}!</h1>
-        <h3>Aquí están tus publicaciones favoritas.</h3>
 {% endblock %}
 
 {% block content %}
     {% if favorites|length < 1 %}
         <h3>No tienes ninguna publicación añadida a tu lista de favoritos.</h3>
+        <a class="btn btn-outline-light" href="/libros">COMIENZA A LEER</a>
     {% else %}
+        <h3>Aquí están tus publicaciones favoritas.</h3>
 
         {% for favorite in favorites %}
         <form method="POST" action="/libreria">
@@ -59,7 +64,7 @@
                     <div class="libros-body">
                         <h3 class="libros-heading">{{ favorite.title }}</h3>
                         <div class="libros-description">{{ favorite.description }}</div>
-                        <a href="/libreria/{{ libro._id }}"> Leer más </a><br>
+                        <a href="/libreria/{{ favorite._id }}"> Leer más </a><br>
                         <input type="hidden" id="favoritetitle" name="favoritetitle" value="{{ favorite.title }}">
                         <br><input type="submit" class="btn btn-outline-dark" value="Eliminar de Favoritos">
                     </div>

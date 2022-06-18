@@ -2,7 +2,7 @@
 
 {% block head %}
     <title>Tu librería</title>
-    <link rel="stylesheet" href="/stylesheets/libros.css">
+    <link rel="stylesheet" href="/stylesheets/comunidad.css">
 {% endblock %}
 
 {% block nav %}
@@ -15,7 +15,7 @@
             Categorías
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Todos</a>
+            <a class="dropdown-item" href="/libros">Todos</a>
             <a class="dropdown-item" href="/accion">Acción</a>
             <a class="dropdown-item" href="/aventura">Aventura</a>
             <a class="dropdown-item" href="/romance">Romance</a>
@@ -34,7 +34,7 @@
     </li><br>
 
     <li class="nav-item">
-        <a class="nav-link" href="/comunidad">Comunidad</a>
+        <a class="nav-link" href="#">Comunidad</a>
     </li><br>
 
     <li class="nav-item">
@@ -48,30 +48,25 @@
 {% endblock %}
 
 {% block content %}
-    {% if libros|length < 1 %}
-        <h3>No existen libros disponibles.</h3>
+    {% if users|length < 1 %}
+        <h3>No hay usuarios.</h3>
     {% else %}
 
-        {% for libro in libros %}
-            <form method="POST" action="/favorites">
+        {% for user in users %}
+            <form method="POST" action="/follow">
                 <div class="body">
                     <div class ="container">
                         <div class="libros">
-                            <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
+                            <img class="photo" src="/img/{{ user.username }}.jpg" alt="Sample photo">
                             <div class="libros-body">
-                                <h3 class="libros-heading">{{ libro.title }}</h3>
-                                <div class="libros-description">{{ libro.description }}
-                                    <br>{{ libro.author }}
-                                    <br>{{ libro.category }}
-                                    <br>{{ libro.language }}
+                                <h3 class="libros-heading">{{ user.username }}</h3>
+                                <div class="libros-description">{{ user.email }}
                                 <br><a href="/libros/{{ libro._id }}"> Leer más </a>
-                                <input type="hidden" id="libroauthor" name="libroauthor" value="{{ libro.author }}">
-                                <input type="hidden" id="librophoto" name="librophoto" value="{{ libro.photo }}">
-                                <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
-                                <input type="hidden" id="librodescription" name="librodescription" value="{{ libro.description }}">
-                                <input type="hidden" id="librocontent" name="librocontent" value="{{ libro.content }}">
-                                {% if libro.title not in user.favoritos %}
-                                    <br><input type="submit" class="btn btn-outline-dark" value="Añadir a Favoritos">
+                                <input type="hidden" id="userusername" name="userusername" value="{{ user.username }}">
+                                <input type="hidden" id="userphoto" name="userphoto" value="{{ user.photo }}">
+                                <input type="hidden" id="useremail" name="useremail" value="{{ user.email }}">
+                                {% if user.username not in user.followers %}
+                                    <br><input type="submit" class="btn btn-outline-dark" value="Añadir amigo">
                                 {% endif %}
                             </div>
                         </div>
