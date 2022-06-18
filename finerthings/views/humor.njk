@@ -2,7 +2,7 @@
 
 {% block head %}
     <title>Tu librería</title>
-    <link rel="stylesheet" href="/stylesheets/libreria.css">
+    <link rel="stylesheet" href="/stylesheets/libros.css">
 {% endblock %}
 
 {% block nav %}
@@ -21,7 +21,7 @@
             <a class="dropdown-item" href="/fantasia">Fantasía</a>
             <a class="dropdown-item" href="/ficcion">Ficción</a>
             <a class="dropdown-item" href="/horror">Horror</a>
-            <a class="dropdown-item" href="/humor">Humor</a>
+            <a class="dropdown-item" href="#">Humor</a>
             <a class="dropdown-item" href="/misterio">Misterio</a>
             <a class="dropdown-item" href="/poesia">Poesía</a>
             <a class="dropdown-item" href="/romance">Romance</a>
@@ -38,7 +38,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#">Librería</a>
+        <a class="nav-link" href="/libreria">Librería</a>
     </li><br>
 
     <li class="nav-item">
@@ -57,32 +57,40 @@
 {% endblock %}
 
 {% block header %}
-        <h1>¡Hola, {{ user.firstName }}!</h1>
 {% endblock %}
 
 {% block content %}
-    {% if favorites|length < 1 %}
-        <h3>No tienes ninguna publicación añadida a tu lista de favoritos.</h3>
-        <a class="btn btn-outline-light" href="/libros">COMIENZA A LEER</a>
+    {% if libros|length < 1 %}
+        <h1>No existen libros disponibles.</h1>
     {% else %}
-        <h3>Aquí están tus publicaciones favoritas.</h3>
 
-        {% for favorite in favorites %}
-        <form method="POST" action="/libreria">
-
-            <div class ="container">
-                <div class="libros">
-                    <img class="photo" src="{{ favorite.photo }}" alt="Sample photo">
-                    <div class="libros-body">
-                        <h3 class="libros-heading">{{ favorite.title }}</h3>
-                        <div class="libros-description">{{ favorite.description }}</div>
-                        <a href="/libreria/{{ favorite._id }}"> Leer más </a><br>
-                        <input type="hidden" id="favoritetitle" name="favoritetitle" value="{{ favorite.title }}">
-                        <br><input type="submit" class="btn btn-outline-dark" value="Eliminar de Favoritos">
+        {% for libro in libros %}
+            <form method="POST" action="/favorites">
+                <div class="body">
+                    <div class ="container">
+                        <div class="libros">
+                            <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
+                            <div class="libros-body">
+                                <h3 class="libros-heading">{{ libro.title }}</h3>
+                                <div class="libros-description">{{ libro.description }}
+                                    <br>{{ libro.author }}
+                                    <br>{{ libro.category }}
+                                    <br>{{ libro.language }}
+                                <br><a href="/libros/{{ libro._id }}"> Leer más </a>
+                                <input type="hidden" id="libroauthor" name="libroauthor" value="{{ libro.author }}">
+                                <input type="hidden" id="librophoto" name="librophoto" value="{{ libro.photo }}">
+                                <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
+                                <input type="hidden" id="librodescription" name="librodescription" value="{{ libro.description }}">
+                                <input type="hidden" id="librocontent" name="librocontent" value="{{ libro.content }}">
+                                {% if libro.title not in user.favoritos %}
+                                    <br><input type="submit" class="btn btn-outline-dark" value="Añadir a Favoritos">
+                                {% endif %}
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
 
         {% endfor %}
 

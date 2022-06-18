@@ -46,3 +46,23 @@
 }
 
 
+h1 {
+    color: black;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: xxx-large;
+    font-weight: bolder;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    animation: type 4s steps(60, end);
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 1%;
+    padding: 1%;
+}
+
+@keyframes type{
+    from { width: 0; }
+}
+
+
