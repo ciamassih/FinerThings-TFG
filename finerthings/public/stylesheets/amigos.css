@@ -115,28 +115,24 @@ h3 {
 
 .libros-description {
     grid-area: description;
+    text-align: center;
 }
 
 .btn-outline-dark {
     position: relative;
-    right: -10px;
-    top: 100px;
+    right: -20px;
+    bottom: -10px;
     padding-left: 15px;
     padding-right: 15px;
 
 }
-
-.btn-outline-light {
-    text-align: center;
-}
-
 
 .btn-secondary {
     position: relative;
-    left: 980px;
-    bottom: 300px;
-    padding-left: 15px;
-    padding-right: 15px;
+    left: 960px;
+    bottom: 200px;
+    padding-left: 50px;
+    padding-right: 50px;
 
 }
 
