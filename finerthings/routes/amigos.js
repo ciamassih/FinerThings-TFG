@@ -22,6 +22,7 @@ router.route('/')
 
     .post(async function (req, res){
         user = await User.updateOne({username:req.user.username}, {$pull:{following:req.body.friendusername}})
+        user = await User.updateOne({username:req.body.friendusername}, {$pull:{followers:req.user.username}})
         res.redirect('/amigos');
         })
 
