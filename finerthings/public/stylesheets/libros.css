@@ -1,53 +1,5 @@
-.container {
-    width: 50%;
-    padding: 1%;
-}
-
-.libros {
-    display: grid;
-    align-items: flex-start;
-    background: #F6F3EB;
-    padding: 5em;
-    grid-template-areas:
-    ". photo libro"
-    ". photo libro"
-    ". photo libro";
-    grid-area: libro;
-
-}
-.photo {
-    margin-top: -40px;
-    grid-template-areas:
-    ". . ."
-    ". . ."
-    ". . .";
-    grid-area: photo;
-    display: block;
-    position: absolute;
-    max-width:310px;
-    max-height:270px;
-}
-.libros-body {
-    display: grid;
-    grid-template-areas:
-    "title title title"
-    "description description description"
-    "description description description";
-    grid-area: info;
-}
-.libros-heading {
-    grid-area: title;
-
-}
-
-.libros-description {
-    grid-area: description;
-    font-size: 15px;
-}
-
-
 h1 {
-    color: black;
+    color: palevioletred;
     font-family: 'Trebuchet MS', sans-serif;
     font-size: xxx-large;
     font-weight: bolder;
@@ -65,4 +17,68 @@ h1 {
     from { width: 0; }
 }
 
+h3 {
+    text-align: center;
+}
 
+.btn-secondary {
+    right: 70px;
+    top: 170px;
+    position: absolute;
+}
+
+.container {
+    width: 50%;
+    padding: 1%;
+}
+
+.libros {
+    display: grid;
+    align-items: flex-start;
+    background: #F6F3EB;
+    padding: 5em;
+    grid-template-areas:
+    ". photo info"
+    ". photo info"
+    ". . .";
+    grid-area: libro;
+}
+.photo {
+    margin-right: 10px;
+    margin-top: 0;
+    grid-template-areas:
+    ". . ."
+    ". . ."
+    ". . .";
+    grid-area: photo;
+    display: block;
+    max-width:400px;
+    max-height:400px;
+    width: auto;
+    height: auto;
+}
+.libros-body {
+    display: grid;
+    grid-template-areas:
+    "title title title"
+    "description description description"
+    "description description description";
+    grid-area: info;
+}
+.libros-heading {
+    grid-area: title;
+
+}
+
+.libros-description {
+    grid-area: description;
+}
+
+.btn-outline-dark {
+    position: relative;
+    right: -25px;
+    top: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}

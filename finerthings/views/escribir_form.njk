@@ -70,11 +70,11 @@
             <div class="escribir-form">
                 <form class="escribirform" method="POST" action="/escribir_form" id="escribir_form" encType="multipart/form-data">
 
-                    <label for="title">Título:</label>
-                    <input name="title" type="text" placeholder="Introduce el título de tu publicación" class="form-control" id="title" required="required"/><br />
+                    <label for="title">Título</label>
+                    <input name="title" type="text" placeholder="Introduce el título de tu publicación" class="form-control" id="title" required="required" maxlength="30"/><br />
 
-                    <label for="description">Descripción:</label>
-                    <input name="description" type="text" placeholder="Cuéntanos de qué trata tu publicación para atraer a más lectores" class="form-control" id="description" required="required"/><br />
+                    <label for="description">Descripción</label>
+                    <input name="description" type="text" placeholder="Cuéntanos de qué trata tu publicación para atraer a más lectores" class="form-control" id="description" required="required" maxlength="100"/><br />
 
                     <label for="category">Categoría</label>
                     <select name="category" id="category" class="form-control selectpicker" required="required">
@@ -98,14 +98,14 @@
                     </select> <br />
 
                     <label for="content">Publicación</label>
-                    <input type="text" name="content" id="content" class="form-control" required="required"/>
+                    <textarea type="text" name="content" id="content" class="form-control" required="required" rows="30" cols="50"></textarea>
 
                     <input type="file" name="fotoescribir" id="upload" required="required" onchange="update(event)">
 
                     <br />
 
-                    <input type="submit" class="btn btn-primary" value="Enviar">
-                    <a class="btn btn-primary" href="/escribir">Volver</a>
+                    <input type="submit" class="btn btn-outline-dark" value="Enviar">
+                    <a class="btn btn-outline-dark" href="/escribir">Volver</a>
 
 
                     <br />
