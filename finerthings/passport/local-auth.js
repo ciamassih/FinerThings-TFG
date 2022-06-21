@@ -31,8 +31,12 @@ passport.use('local-signup', new LocalStrategy({
             if (err) console.log(err)
         });
 
+        let value = username
+        value = value.trim().toLowerCase();
+
         const newUser = new User();
         newUser.username = username
+        newUser.usernamesearch = value
         newUser.password = newUser.encryptPassword(password);
         newUser.firstName = req.body.firstName;
         newUser.lastName = req.body.lastName;

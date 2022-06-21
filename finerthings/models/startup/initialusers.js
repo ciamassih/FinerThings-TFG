@@ -12,6 +12,7 @@ async function initDB() {
     const initUsers = [
         {
             username: "admin",
+            usernamesearch: "admin",
             password: bcrypt.hashSync("admin", bcrypt.genSaltSync(10)),
             firstName: "admin",
             lastName: "admin",
@@ -25,6 +26,7 @@ async function initDB() {
         },
         {
             username: "test",
+            usernamesearch: "test",
             password: bcrypt.hashSync("test", bcrypt.genSaltSync(10)),
             firstName: "test",
             lastName: "test",

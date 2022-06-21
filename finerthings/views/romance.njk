@@ -64,6 +64,24 @@
         <h1>No existen libros disponibles.</h1>
     {% else %}
 
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Buscar libros</h2>
+                </div>
+                <form method="POST" action="/get_libros" id="get-libros">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="librotitle" id="librotitle" /><br>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" name="action" value="Buscar libro" class="btn btn-primary"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         {% for libro in libros %}
             <form method="POST" action="/favorites">
                 <div class="body">

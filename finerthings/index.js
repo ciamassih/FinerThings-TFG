@@ -69,6 +69,7 @@ app.use('/favorites', isAuthenticated, require('./routes/favorites'));
 app.use('/escribir_form', isAuthenticated, require('./routes/escribir_form'));
 app.use('/miperfil', isAuthenticated, require('./routes/miperfil'));
 app.use('/comunidad', isAuthenticated, require('./routes/comunidad'));
+app.use('/get_usuario', isAuthenticated, require('./routes/get_usuario'));
 app.use('/amigos', isAuthenticated, require('./routes/amigos'));
 app.use('/seguidores', isAuthenticated, require('./routes/seguidores'));
 app.use('/amigos_publicaciones', isAuthenticated, require('./routes/amigos_publicaciones'));
