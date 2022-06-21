@@ -15,9 +15,13 @@ router.route('/')
             if (err) console.log(err)
         });
 
+        let value = req.body.title;
+        value = value.trim().toLowerCase();
+
         const libro = new Libro();
         libro.photo = "/img/" + req.body.title + ".jpg";
         libro.title = req.body.title;
+        libro.titlesearch = value;
         libro.description = req.body.description;
         libro.author = req.user.username;
         libro.category = req.body.category;

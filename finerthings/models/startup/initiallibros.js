@@ -12,6 +12,7 @@ async function initDB() {
         {
             photo: "/img/libro1.png",
             title: "Ejemplo 1",
+            titlesearch: "ejemplo 1",
             author: "admin",
             description: ".",
             category: "Romance",
@@ -21,6 +22,7 @@ async function initDB() {
         {
             photo: "/img/libro2.png",
             title: "La biblioteca de medianoche",
+            titlesearch: "la biblioteca de medianoche",
             author: "admin",
             description: ".",
             category: "Ficción",

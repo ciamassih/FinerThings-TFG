@@ -55,6 +55,7 @@ app.use('/dashboard', isAuthenticated, require('./routes/dashboard'));
 app.use('/libreria', isAuthenticated, require('./routes/libreria'));
 app.use('/escribir', isAuthenticated, require('./routes/escribir'));
 app.use('/libros', isAuthenticated, require('./routes/libros'));
+app.use('/get_libros', isAuthenticated, require('./routes/get_libros'));
 app.use('/accion', isAuthenticated, require('./routes/accion'));
 app.use('/aventura', isAuthenticated, require('./routes/aventura'));
 app.use('/fantasia', isAuthenticated, require('./routes/fantasia'));

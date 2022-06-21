@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 const libroSchema = new Schema({
     photo: Array,
     title: String,
+    titlesearch: String,
     author: String,
     description: String,
     category: String,
