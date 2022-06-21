@@ -74,9 +74,9 @@
                             <div class="libros-body">
                                 <h3 class="libros-heading">{{ libro.title }}</h3>
                                 <div class="libros-description">{{ libro.description }}
-                                    <br>{{ libro.author }}
-                                    <br>{{ libro.category }}
-                                    <br>{{ libro.language }}
+                                    <br><b>Autor: </b> {{ libro.author }}
+                                    <br><b>Categoría: </b> {{ libro.category }}
+                                    <br><b>Idioma: </b> {{ libro.language }}
                                     <br><a href="/libros/{{ libro._id }}"> Leer más </a>
                                     <input type="hidden" id="libroauthor" name="libroauthor" value="{{ libro.author }}">
                                     <input type="hidden" id="librophoto" name="librophoto" value="{{ libro.photo }}">

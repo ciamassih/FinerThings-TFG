@@ -50,6 +50,12 @@
         <a class="nav-link" href="/miperfil">Mi perfil</a>
     </li><br>
 
+    {% if user.isAdmin == true %}
+        <li class="nav-item">
+            <a class="nav-link" href="/admin_libros">Gestionar libros</a>
+        </li>
+    {% endif %}
+
     <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
     </li><br>

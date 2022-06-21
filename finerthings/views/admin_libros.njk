@@ -1,7 +1,7 @@
 {% extends "layoutNav.njk" %}
 
 {% block head %}
-    <title>Tu librería</title>
+    <title>Gestionar libros</title>
     <link rel="stylesheet" href="/stylesheets/libros.css">
 {% endblock %}
 
@@ -22,7 +22,7 @@
             <a class="dropdown-item" href="/ficcion">Ficción</a>
             <a class="dropdown-item" href="/horror">Horror</a>
             <a class="dropdown-item" href="/humor">Humor</a>
-            <a class="dropdown-item" href="#">Misterio</a>
+            <a class="dropdown-item" href="/misterio">Misterio</a>
             <a class="dropdown-item" href="/poesia">Poesía</a>
             <a class="dropdown-item" href="/romance">Romance</a>
     </li>
@@ -49,6 +49,12 @@
         <a class="nav-link" href="/miperfil">Mi perfil</a>
     </li><br>
 
+    {% if user.isAdmin == true %}
+        <li class="nav-item">
+            <a class="nav-link" href="#">Gestionar libros</a>
+        </li>
+    {% endif %}
+
     <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
     </li><br>
@@ -67,9 +73,9 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title">Buscar libros de misterio</h2>
+                    <h2 class="modal-title">Buscar libros</h2>
                 </div>
-                <form method="POST" action="/get_libros_misterio" id="get-libros_misterio">
+                <form method="POST" action="/get_libros" id="get-libros">
                     <div class="modal-body">
                         <div class="mb-3">
                             <input type="text" class="form-control" name="librotitle" id="librotitle" /><br>
@@ -83,28 +89,16 @@
         </div>
 
         {% for libro in libros %}
-            <form method="POST" action="/favorites">
-                <div class="body">
-                    <div class ="container">
-                        <div class="libros">
-                            <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
-                            <div class="libros-body">
-                                <h3 class="libros-heading">{{ libro.title }}</h3>
-                                <div class="libros-description">{{ libro.description }}
-                                    <br><b>Autor: </b> {{ libro.author }}
-                                    <br><b>Categoría: </b> {{ libro.category }}
-                                    <br><b>Idioma: </b> {{ libro.language }}
-                                <br><a href="/libros/{{ libro._id }}"> Leer más </a>
-                                <input type="hidden" id="libroauthor" name="libroauthor" value="{{ libro.author }}">
-                                <input type="hidden" id="librophoto" name="librophoto" value="{{ libro.photo }}">
-                                <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
-                                <input type="hidden" id="librodescription" name="librodescription" value="{{ libro.description }}">
-                                <input type="hidden" id="librocontent" name="librocontent" value="{{ libro.content }}">
-                                {% if libro.title not in user.favoritos %}
-                                    <br><input type="submit" class="btn btn-outline-dark" value="Añadir a Favoritos">
-                                {% endif %}
-                            </div>
-                        </div>
+            <form method="POST" action="/admin_libros">
+                <div class ="container">
+                    <div class="libros">
+                        <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
+                        <div class="libros-body">
+                            <h3 class="libros-heading">{{ libro.title }}</h3>
+                            <div class="libros-description">{{ libro.description }}</div>
+                            <a href="/libros/{{ libro._id }}"> Leer más </a>
+                            <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
+                            <br><input type="submit" class="btn btn-outline-dark" value="Eliminar publicacion">
                         </div>
                     </div>
                 </div>

@@ -85,6 +85,7 @@ app.use('/amigos_publicaciones', isAuthenticated, require('./routes/amigos_publi
 app.use('/follow', isAuthenticated, require('./routes/follow'));
 app.use('/perfil_form_foto', isAuthenticated, require('./routes/perfil_form_foto'));
 app.use('/perfil_form_pass', isAuthenticated, require('./routes/perfil_form_pass'));
+app.use('/admin_libros', isAuthenticated, require('./routes/admin_libros'));
 
 // Authentication
 function isAuthenticated(req, res, next) {
