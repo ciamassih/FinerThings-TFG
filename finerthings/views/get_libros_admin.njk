@@ -1,8 +1,8 @@
 {% extends "layoutNav.njk" %}
 
 {% block head %}
-    <title>Comunidad</title>
-    <link rel="stylesheet" href="/stylesheets/comunidad.css">
+    <title>Publicaciones</title>
+    <link rel="stylesheet" href="/stylesheets/admin_libros.css">
 {% endblock %}
 
 {% block nav %}
@@ -37,7 +37,6 @@
             <a class="dropdown-item" href="/seguidores">Mis seguidores</a>
     </li>
 
-
     <li class="nav-item">
         <a class="nav-link" href="/libreria">Librería</a>
     </li><br>
@@ -67,45 +66,39 @@
 {% endblock %}
 
 {% block content %}
-    {% if users|length < 1 %}
-        <h1>Usuario no encontrado.</h1>
+    {% if libros|length < 1 %}
+        <h1>No existen libros disponibles.</h1>
     {% else %}
 
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title">Buscar usuario</h2>
+                    <h2 class="modal-title">Buscar libros</h2>
                 </div>
-                <form method="POST" action="/get_usuario" id="get-usuario">
+                <form method="POST" action="/get_libros_admin" id="get-libros">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="friendusername" id="friendusername" /><br>
+                            <input type="text" class="form-control" name="librotitle" id="librotitle" /><br>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" name="action" value="Buscar usuario" class="btn btn-primary"/>
+                        <input type="submit" name="action" value="Buscar libro" class="btn btn-primary"/>
                     </div>
                 </form>
             </div>
         </div>
 
-        {% for element in users %}
-            <form method="POST" action="/follow">
-                <div class="body">
-                    <div class ="container">
-                        <div class="libros">
-                            <img class="photo" src="/img/{{ element.username }}.jpg" alt="Sample photo">
-                            <div class="libros-body">
-                                <h3 class="libros-heading">{{ element.username }}</h3>
-                                <div class="libros-description">{{ element.email }}
-                                <br><a href="/libros/{{ libro._id }}"> Leer más </a>
-                                <input type="hidden" id="friendusername" name="friendusername" value="{{ element.username }}">
-                                <input type="hidden" id="friendemail" name="friendemail" value="{{ element.email }}">
-                                {% if (element.username not in user.following) and (element.username != user.username) %}
-                                    <br><input type="submit" class="btn btn-outline-dark" value="Seguir">
-                                {% endif %}
-                            </div>
-                        </div>
+        {% for libro in libros %}
+            <form method="POST" action="/admin_libros">
+                <div class ="container">
+                    <div class="libros">
+                        <img class="photo" src="{{ libro.photo }}" alt="Sample photo">
+                        <div class="libros-body">
+                            <h3 class="libros-heading">{{ libro.title }}</h3>
+                            <div class="libros-description">{{ libro.description }}</div>
+                            <a href="/libros/{{ libro._id }}"> Leer publicación </a>
+                            <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
+                            <br><input type="submit" class="btn btn-outline-dark" value="Eliminar publicacion">
                         </div>
                     </div>
                 </div>

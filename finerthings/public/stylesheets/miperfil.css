@@ -47,7 +47,7 @@ h3 {
 .profile-photo {
     grid-area: profile-photo;
     position: relative;
-    margin-top: -40px;
+    margin-top: -10px;
 }
 
 .profile-info {

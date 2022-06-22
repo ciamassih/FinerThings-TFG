@@ -88,6 +88,15 @@
                 </div>
             </form>
 
+            <form method="GET" action="/modificar_publicacion">
+                <input type="hidden" id="librophoto" name="librophoto" value="{{ libro.photo }}">
+                <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
+                <input type="hidden" id="librodescription" name="librodescription" value="{{ libro.description }}">
+                <input type="hidden" id="librocontent" name="librocontent" value="{{ libro.content }}">
+                <br><input type="submit" class="btn btn-outline-secondary" value="Modificar publicación">
+            </form>
+
+
         {% endfor %}
 
 

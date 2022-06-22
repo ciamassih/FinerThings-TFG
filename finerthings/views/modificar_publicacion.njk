@@ -2,7 +2,7 @@
 
 {% block head %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Nueva publicación</title>
+    <title>Modificar publicación</title>
     <link rel="stylesheet" href="/stylesheets/escribir_form.css">
 {% endblock %}
 
@@ -57,7 +57,7 @@
 {% endblock %}
 
 {% block header %}
-    <h1> Publicar nueva historia </h1>
+    <h1> Modificar publicación </h1>
 
 {% endblock %}
 
@@ -68,13 +68,13 @@
             <img id="escribir-photo" src="/img/escribir-form.png" alt="Añadir portada">
             <p class="photo-desc"> Haz click en la imagen para añadir la portada de tu publicación.</p>
             <div class="escribir-form">
-                <form class="escribirform" method="POST" action="/escribir_form" id="escribir_form" encType="multipart/form-data">
+                <form class="modificarform" method="POST" action="/modificar_publicacion" id="modificar_form" encType="multipart/form-data">
 
                     <label for="title">Título</label>
-                    <input name="title" type="text" placeholder="Introduce el título de tu publicación" class="form-control" id="title" required="required" maxlength="30"/><br />
+                    <input name="title" value="{{ title }}" type="text" placeholder="Introduce el título de tu publicación" class="form-control" id="title" required="required" maxlength="30"/><br />
 
                     <label for="description">Descripción</label>
-                    <input name="description" type="text" placeholder="Cuéntanos de qué trata tu publicación para atraer a más lectores" class="form-control" id="description" required="required" maxlength="100"/><br />
+                    <input name="description" value="{{ description }}" type="text" placeholder="Cuéntanos de qué trata tu publicación para atraer a más lectores" class="form-control" id="description" required="required" maxlength="100"/><br />
 
                     <label for="category">Categoría</label>
                     <select name="category" id="category" class="form-control selectpicker" required="required">
@@ -98,13 +98,14 @@
                     </select> <br />
 
                     <label for="content">Publicación</label>
-                    <textarea type="text" name="content" id="content" class="form-control" required="required" rows="30" cols="50" maxlength="15000"></textarea>
+                    <textarea type="text" name="content" id="content" class="form-control" required="required" rows="30" cols="50">{{ content }}</textarea>
 
                     <input type="file" name="fotoescribir" id="upload" required="required" onchange="update(event)">
 
                     <br />
-
-                    <input type="submit" class="btn btn-outline-dark" value="Enviar">
+                    <input type="hidden" id="librophoto" name="librophoto" value="{{ photo }}">
+                    <input type="hidden" id="librotitle" name="librotitle" value="{{ title }}">
+                    <input type="submit" class="btn btn-outline-dark" value="Actualizar publicación">
                     <a class="btn btn-outline-dark" href="/escribir">Volver</a>
 
 

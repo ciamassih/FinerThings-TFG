@@ -72,13 +72,21 @@ h3 {
 
 .libros-description {
     grid-area: description;
+    text-align: justify;
 }
 
 .btn-outline-dark {
     position: relative;
-    right: 10px;
-    top: 260px;
-    padding-left: 15px;
-    padding-right: 15px;
+    right: 40px;
+    top: 200px;
+
+}
+
+.btn-outline-secondary {
+    text-align: center;
+    margin-left: 900px;
+    margin-top: -640px;
+    padding-left: 40px;
+    padding-right: 40px;
 
 }

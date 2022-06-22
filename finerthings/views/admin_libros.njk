@@ -2,7 +2,7 @@
 
 {% block head %}
     <title>Gestionar libros</title>
-    <link rel="stylesheet" href="/stylesheets/libros.css">
+    <link rel="stylesheet" href="/stylesheets/admin_libros.css">
 {% endblock %}
 
 {% block nav %}
@@ -75,7 +75,7 @@
                 <div class="modal-header">
                     <h2 class="modal-title">Buscar libros</h2>
                 </div>
-                <form method="POST" action="/get_libros" id="get-libros">
+                <form method="POST" action="/get_libros_admin" id="get-libros">
                     <div class="modal-body">
                         <div class="mb-3">
                             <input type="text" class="form-control" name="librotitle" id="librotitle" /><br>
@@ -96,7 +96,7 @@
                         <div class="libros-body">
                             <h3 class="libros-heading">{{ libro.title }}</h3>
                             <div class="libros-description">{{ libro.description }}</div>
-                            <a href="/libros/{{ libro._id }}"> Leer más </a>
+                            <a href="/libros/{{ libro._id }}"> Leer publicación </a>
                             <input type="hidden" id="librotitle" name="librotitle" value="{{ libro.title }}">
                             <br><input type="submit" class="btn btn-outline-dark" value="Eliminar publicacion">
                         </div>

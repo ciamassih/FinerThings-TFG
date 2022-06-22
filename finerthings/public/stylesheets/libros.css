@@ -76,9 +76,17 @@ h3 {
 
 .btn-outline-dark {
     position: relative;
-    right: -25px;
-    top: 100px;
+    right: -120px;
+    top: 50px;
     padding-left: 15px;
     padding-right: 15px;
+
+}
+
+.container a {
+    font-size: large;
+    font-weight: bold;
+    margin-left: 130px;
+    text-decoration: none;
 
 }

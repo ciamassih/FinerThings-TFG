@@ -74,6 +74,7 @@ app.use('/poesia', isAuthenticated, require('./routes/poesia'));
 app.use('/get_libros_poesia', isAuthenticated, require('./routes/get_libros_poesia'));
 app.use('/romance', isAuthenticated, require('./routes/romance'));
 app.use('/get_libros_romance', isAuthenticated, require('./routes/get_libros_romance'));
+app.use('/get_libros_admin', isAuthenticated, require('./routes/get_libros_admin'));
 app.use('/favorites', isAuthenticated, require('./routes/favorites'));
 app.use('/escribir_form', isAuthenticated, require('./routes/escribir_form'));
 app.use('/miperfil', isAuthenticated, require('./routes/miperfil'));
@@ -86,6 +87,7 @@ app.use('/follow', isAuthenticated, require('./routes/follow'));
 app.use('/perfil_form_foto', isAuthenticated, require('./routes/perfil_form_foto'));
 app.use('/perfil_form_pass', isAuthenticated, require('./routes/perfil_form_pass'));
 app.use('/admin_libros', isAuthenticated, require('./routes/admin_libros'));
+app.use('/modificar_publicacion', isAuthenticated, require('./routes/modificar_publicacion'));
 
 // Authentication
 function isAuthenticated(req, res, next) {
