@@ -7,6 +7,7 @@
     display: grid;
     align-items: flex-start;
     background: #F6F3EB;
+    height: 280px;
     padding: 5em;
     grid-template-areas:
     ". photo libro"
@@ -16,7 +17,7 @@
 
 }
 .photo {
-    margin-top: -40px;
+    margin-top: -55px;
     grid-template-areas:
     ". . ."
     ". . ."
@@ -24,9 +25,13 @@
     grid-area: photo;
     display: block;
     position: absolute;
-    max-width:270px;
-    max-height:220px;
+    width:270px;
+    height:220px;
+    object-fit: cover;
+    object-position: 100% 0;
+
 }
+
 .libros-body {
     display: grid;
     grid-template-areas:

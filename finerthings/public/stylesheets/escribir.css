@@ -1,3 +1,26 @@
+.btn-secondary {
+    right: 70px;
+    top: 170px;
+    position: absolute;
+}
+
+
+.btn-outline-dark {
+    position: relative;
+    right: -70px;
+    top: 200px;
+
+}
+
+.btn-outline-secondary {
+    text-align: center;
+    margin-left: 450px;
+    margin-top: -640px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+
 h1 {
     color: palevioletred;
     font-family: 'Trebuchet MS', sans-serif;
@@ -28,7 +51,7 @@ h3 {
 }
 
 .container {
-    width: 50%;
+    width: 800px;
     padding: 1%;
 }
 
@@ -52,10 +75,10 @@ h3 {
     ". . .";
     grid-area: photo;
     display: block;
-    max-width:400px;
-    max-height:400px;
-    width: auto;
-    height: auto;
+    width:320px;
+    height:480px;
+    object-fit: contain;
+
 }
 .libros-body {
     display: grid;
@@ -72,21 +95,13 @@ h3 {
 
 .libros-description {
     grid-area: description;
-    text-align: justify;
 }
 
-.btn-outline-dark {
-    position: relative;
-    right: 40px;
-    top: 200px;
 
-}
-
-.btn-outline-secondary {
-    text-align: center;
-    margin-left: 900px;
-    margin-top: -640px;
-    padding-left: 40px;
-    padding-right: 40px;
+.container a {
+    font-size: large;
+    font-weight: bold;
+    margin-left: 80px;
+    text-decoration: none;
 
 }

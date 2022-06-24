@@ -95,10 +95,10 @@ h3 {
     ". . .";
     grid-area: photo;
     display: block;
-    max-width:400px;
-    max-height:400px;
-    width: auto;
-    height: auto;
+    width:270px;
+    height:220px;
+    object-fit: cover;
+    object-position: 100% 0;
 }
 .libros-body {
     display: grid;
@@ -129,7 +129,7 @@ h3 {
 
 .btn-secondary {
     position: relative;
-    left: 960px;
+    left: 900px;
     bottom: 200px;
     padding-left: 50px;
     padding-right: 50px;

@@ -95,10 +95,9 @@ h3 {
     ". . .";
     grid-area: photo;
     display: block;
-    max-width:400px;
-    max-height:400px;
-    width: auto;
-    height: auto;
+    width:320px;
+    height:480px;
+    object-fit: contain;
 }
 .libros-body {
     display: grid;

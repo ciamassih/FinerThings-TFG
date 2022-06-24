@@ -27,9 +27,10 @@ h1 {
 #escribir-photo {
     margin: 20px;
     grid-area: photo;
-    width: auto;
-    height: 400px;
     cursor: pointer;
+    width:320px;
+    height:400px;
+    object-fit: contain;
 }
 
 

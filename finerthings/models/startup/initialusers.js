@@ -17,7 +17,6 @@ async function initDB() {
             firstName: "admin",
             lastName: "admin",
             email: "admin@finerthings.com",
-            birthday: new Date("<2000-01-01>"),
             description: "This is the admin account",
             favoritos: [],
             following: [],
@@ -25,19 +24,46 @@ async function initDB() {
             isAdmin: "true"
         },
         {
-            username: "test",
-            usernamesearch: "test",
+            username: "edgar_allan_poe",
+            usernamesearch: "edgar allan poe",
             password: bcrypt.hashSync("test", bcrypt.genSaltSync(10)),
-            firstName: "test",
-            lastName: "test",
-            email: "test@finerthings.com",
-            birthday: new Date("<2000-01-01>"),
+            firstName: "Edgar Allan",
+            lastName: "Poe",
+            email: "e_poe@finerthings.com",
+            description: "This is a test account",
+            favoritos: [],
+            following: [],
+            followers: [],
+            isAdmin: "false"
+        },
+        {
+            username: "haruki_urakami",
+            usernamesearch: "haruki urakami",
+            password: bcrypt.hashSync("test", bcrypt.genSaltSync(10)),
+            firstName: "Haruki",
+            lastName: "Urakami",
+            email: "haru_kami@finerthings.com",
+            description: "This is a test account",
+            favoritos: [],
+            following: [],
+            followers: [],
+            isAdmin: "false"
+        },
+        {
+            username: "horacio_quiroga",
+            usernamesearch: "horacio quiroga",
+            password: bcrypt.hashSync("test", bcrypt.genSaltSync(10)),
+            firstName: "Horacio",
+            lastName: "Quiroga",
+            email: "horacio_quiroga@finerthings.com",
             description: "This is a test account",
             favoritos: [],
             following: [],
             followers: [],
             isAdmin: "false"
         }
+
+
     ];
 
     await User.insertMany(initUsers)

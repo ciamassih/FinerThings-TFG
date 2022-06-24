@@ -52,10 +52,10 @@ h3 {
     ". . .";
     grid-area: photo;
     display: block;
-    max-width:400px;
-    max-height:400px;
-    width: auto;
-    height: auto;
+    width:320px;
+    height:480px;
+    object-fit: contain;
+
 }
 .libros-body {
     display: grid;
@@ -76,7 +76,7 @@ h3 {
 
 .btn-outline-dark {
     position: relative;
-    right: -120px;
+    right: -80px;
     top: 50px;
     padding-left: 15px;
     padding-right: 15px;
@@ -86,7 +86,15 @@ h3 {
 .container a {
     font-size: large;
     font-weight: bold;
-    margin-left: 130px;
+    margin-left: 90px;
     text-decoration: none;
 
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: large;
+    font-weight: bolder;
+    margin-top: 50px;
 }

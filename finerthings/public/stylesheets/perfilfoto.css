@@ -40,8 +40,8 @@ h1 {
 #profile-pic {
     margin: 20px;
     grid-area: photo;
-    width: 370px;
-    height: 370px;
+    width:600px;
+    height:480px;
     cursor: pointer;
 }
 

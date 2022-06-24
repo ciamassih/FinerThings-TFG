@@ -98,7 +98,6 @@
                             <div class="libros-body">
                                 <h3 class="libros-heading">{{ element.username }}</h3>
                                 <div class="libros-description">{{ element.email }}
-                                <br><a href="/libros/{{ libro._id }}"> Leer más </a>
                                 <input type="hidden" id="friendusername" name="friendusername" value="{{ element.username }}">
                                 <input type="hidden" id="friendemail" name="friendemail" value="{{ element.email }}">
                                 {% if (element.username not in user.following) and (element.username != user.username) %}

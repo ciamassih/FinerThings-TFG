@@ -48,6 +48,10 @@ h3 {
     grid-area: profile-photo;
     position: relative;
     margin-top: -10px;
+    width:310px;
+    height:280px;
+    object-fit: cover;
+    object-position: 100% 0;
 }
 
 .profile-info {
