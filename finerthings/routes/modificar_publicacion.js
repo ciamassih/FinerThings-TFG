@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const Libro = require("../models/libros");
 const Favorite = require("../models/favorites");
+const alert = require("alert");
 
 router.route('/')
 
@@ -32,7 +33,18 @@ router.route('/')
             favorite = await Favorite.deleteMany(query)
             user = await User.updateMany({$pull:{favoritos:[title]}})
 
+
             const modificarLibro = await Libro.findOne({title: title});
+
+            let titlesearch = req.body.title;
+            titlesearch = titlesearch.trim().toLowerCase();
+
+            const existCheck = await Libro.findOne({titlesearch: titlesearch});
+
+            if (existCheck) { //si existe la publicación manda un error
+                alert("¡Publicación existe! Por favor, introduce otro título.")
+
+            } else {
 
             modificarLibro.photo = "/img/" + req.body.title + ".jpg";
             modificarLibro.title = req.body.title;
@@ -46,6 +58,6 @@ router.route('/')
 
             res.redirect('/escribir');
 
-    })
+    }})
 
 module.exports = router;

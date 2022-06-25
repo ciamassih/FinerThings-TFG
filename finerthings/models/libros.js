@@ -4,7 +4,10 @@ const { Schema } = mongoose;
 
 const libroSchema = new Schema({
     photo: Array,
-    title: String,
+    title: {
+        type: String,
+        unique: 'El título de la publicación debe ser único'
+    },
     titlesearch: String,
     author: String,
     description: String,

@@ -12,7 +12,7 @@ async function initDB() {
         {
             photo: "/img/corazon.png",
             title: "El corazón delator",
-            titlesearch: "el corazon delator",
+            titlesearch: "el corazón delator",
             author: "edgar_allan_poe",
             description: "La historia sobre una confesión de amor que culminó en un asesinato.",
             category: "Horror",
