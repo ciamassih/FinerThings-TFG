@@ -5,7 +5,6 @@ const morgan = require('morgan');
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
-const createError = require("http-errors");
 const fileUpload = require('express-fileupload');
 
 //Initializations
@@ -96,6 +95,5 @@ function isAuthenticated(req, res, next) {
     }
     res.redirect('/login')
 }
-
 
 module.exports = app;
