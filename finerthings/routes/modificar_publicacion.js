@@ -18,13 +18,6 @@ router.route('/')
 
 
     .post(async function(req, res, next){
-            let publicacionpic = req.files.fotoescribir;
-            let uploadPath = process.cwd() + "/finerthings/public/img/" + req.body.title +".jpg";
-
-            publicacionpic.mv(uploadPath, function (err){
-                    if (err) console.log(err)
-            });
-
             let value = req.body.title;
             value = value.trim().toLowerCase();
 
@@ -45,6 +38,13 @@ router.route('/')
                 alert("¡Publicación existe! Por favor, introduce otro título.")
 
             } else {
+
+                let publicacionpic = req.files.fotoescribir;
+                let uploadPath = process.cwd() + "/public/img/" + req.body.title +".jpg";
+
+                publicacionpic.mv(uploadPath, function (err){
+                    if (err) console.log(err)
+                });
 
             modificarLibro.photo = "/img/" + req.body.title + ".jpg";
             modificarLibro.title = req.body.title;

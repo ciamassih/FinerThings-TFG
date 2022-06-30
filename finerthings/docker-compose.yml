@@ -1,21 +1,24 @@
 version: "3"
 services:
   app:
-    build: .
-    links:
+    container_name: app
+    image: tfg:latest
+    depends_on:
       - db
     ports:
-      - "3000:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
+      - "3500:3000"
+#    volumes:
+#      - cris:/app
+
   db:
-    container_name: tfgdatabase
+    container_name: db
     image: mongo
-    restart: always
+#    restart: always
     ports:
       - "27017:27017"
     volumes:
       - mongodata:/data/db
+#      - cris:/app
 volumes:
-  mongodata:
+    mongodata:
+#  cris:

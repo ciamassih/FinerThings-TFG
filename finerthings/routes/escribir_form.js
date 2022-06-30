@@ -19,7 +19,7 @@ router.route('/')
 
         } else {
             let publicacionpic = req.files.fotoescribir;
-            let uploadPath = process.cwd() + "/finerthings/public/img/" + req.body.title + ".jpg";
+            let uploadPath = process.cwd() + "/public/img/" + req.body.title + ".jpg";
 
             publicacionpic.mv(uploadPath, function (err) {
                 if (err) console.log(err)

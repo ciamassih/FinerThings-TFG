@@ -37,11 +37,11 @@ async function initDB() {
             isAdmin: "false"
         },
         {
-            username: "haruki_urakami",
-            usernamesearch: "haruki urakami",
+            username: "haruki_murakami",
+            usernamesearch: "haruki murakami",
             password: bcrypt.hashSync("test", bcrypt.genSaltSync(10)),
             firstName: "Haruki",
-            lastName: "Urakami",
+            lastName: "Murakami",
             email: "haru_kami@finerthings.com",
             description: "This is a test account",
             favoritos: [],
