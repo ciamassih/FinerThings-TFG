@@ -9,7 +9,7 @@ router.route('/')
 
     .post(function(req, res, next){
         let profilepic = req.files.profilepic;
-        let uploadPath = process.cwd() + "/finerthings/public/img/" + req.user.username +".jpg";
+        let uploadPath = process.cwd() + "/public/img/" + req.user.username +".jpg";
 
         profilepic.mv(uploadPath, function (err){
             if (err) console.log(err)

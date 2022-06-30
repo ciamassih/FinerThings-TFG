@@ -10,3 +10,6 @@ Se proporciona un Dockerfile, .dockerignore y docker-compose para facilitar el d
 2. Para conectar la aplicación con la base de datos: docker-compose up
 3. La aplicación se encontrará en http://127.0.0.1:3500
 
+Se facilitan las credenciales de un usuario de prueba:
+- Nombre de usuario: test_account
+- Contraseña: Password1 (con "P" mayúscula).
