@@ -7,18 +7,13 @@ services:
       - db
     ports:
       - "3500:3000"
-#    volumes:
-#      - cris:/app
 
   db:
     container_name: db
     image: mongo
-#    restart: always
     ports:
       - "27017:27017"
     volumes:
       - mongodata:/data/db
-#      - cris:/app
 volumes:
     mongodata:
-#  cris:
